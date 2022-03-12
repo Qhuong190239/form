@@ -1,0 +1,28 @@
+{# kế thừa file template layout #}
+{% extends "layout.html.twig" %}
+
+{# chèn nội dung vào block body #}
+{% block body %}
+    <div class="container col-md-6">
+        <table class="table table-table">
+        <thead>
+            <tr>
+                <th>Todo ID</th>
+                <th>Todo Title</th>
+                <th>Todo Content</th>
+                <th>Todo Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for todo in todos %}
+            <tr>
+                <td>{{ todo.id }}</td>
+                <td>{{ todo.title }}</td>
+                <td>{{ todo.content }}</td>
+                <td>{{ todo.date | date('d/m/Y')}}</td>
+            </tr>            
+        {% endfor %}
+        </tbody>
+        </table>    
+    </div>
+{% endblock %}
